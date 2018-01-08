@@ -31,15 +31,16 @@ function toggleTableVisibility(){
 
 function populateTable(jsonData){
   var livsmedel = jsonData.livsmedel;
-  var table = document.getElementById("tabell");
+  var table = document.getElementById("tabell").getElementsByTagName('tbody')[0];
 
   for(var i = 0; i < livsmedel.length; i ++){
-    var row = table.insertRow(i+1);
+    var row = table.insertRow(i);
     var namn = row.insertCell(0).innerHTML = livsmedel[i].namn;
     var energi = row.insertCell(1).innerHTML = livsmedel[i].energi;
-    var protein = row.insertCell(2).innerHTML = livsmedel[i].protein;
-    var fett = row.insertCell(3).innerHTML = livsmedel[i].fett;
-    var kolhydrater = row.insertCell(4).innerHTML = livsmedel[i].kolhydrater;
+    var kolhydrater = row.insertCell(2).innerHTML = livsmedel[i].kolhydrater;
+    var protein = row.insertCell(3).innerHTML = livsmedel[i].protein;
+    var fett = row.insertCell(4).innerHTML = livsmedel[i].fett;
+
   }
   toggleTableVisibility();
 }
